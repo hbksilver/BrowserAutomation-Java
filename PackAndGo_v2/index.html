@@ -1,0 +1,304 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pack & Go</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		
+		
+		<!--Offline script and css-->
+		
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/index.css">
+		
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container-fluid">
+				
+				<div class="navbar-header ">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>                        
+					 </button>
+					<a href="#" class="navbar-brand fontPacifico" >Pack & Go </a>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right fontPoiret">
+						<li><a href="#" data-toggle="modal" data-target="#aboutUsModal">About Us</a></li>
+						<li><a href="#" data-toggle="modal" data-target="#offersModal"><span class="glyphicon glyphicon-sunglasses"></span> Offers</a></li>
+						<li><a href="#"data-toggle="modal" data-target="#signUpModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+						<li><a href="#"data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						
+					</ul>
+				</div>
+				
+			</div>
+		</nav>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<img src="images/main1.jpg" class="img-rounded" style="width:100%; height:100%;">
+					<h3>FROM PLANNING TO EXECUTION OF YOUR PLANNING</h3>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<img src="images/scuba1.jpg" class="img-rounded" style="width:100%; height:100%;max-height:150px;">
+					<h4>Die for Scuba Diving</h4>
+					<p>Have you always wondered what it’s like to breathe underwater?  Scuba Diving is a quick and easy introduction to what it takes to explore the underwater world.</p>
+				</div>
+				<div class="col-sm-3">
+					<img src="images/trekking1.jpg"  class="img-rounded" style="width:100%; height:100%;max-height:150px;">
+					<h4>Track your Trekking</h4>
+					<p>Trekking in India is one of the finest in the world. Hikers from all around the world have written their stories of trekking in India. Not only do we boast of the highest range of mountains offering even professional trekkers a challenge but some of routes of trekking are easily accessible by even amateurs and first time trekkers.</p>
+				</div>
+				<div class="col-sm-3">
+					<img src="images/safari1.jpg"  class="img-rounded" style="width:100%; height:100%;max-height:150px;">
+					<h4>Have a Safar of Safari</h4>
+					<p>If you love watching majestic tigers in their natural habitat then you must be a part of Indian Tiger Safari. We cordially invite you to the wild side of life for 11 days and 10 nights amidst the forest of Corbett, Bandhavgarh, Ranthambore and Kaziranga where real beauty of nature of lies. </p>
+				</div>
+				<div class="col-sm-3">
+					<img src="images/beach1.jpg"  class="img-rounded" style="width:100%; height:100%;max-height:150px;">
+					<h4>Get Tanned</h4>
+					<p>Top beaches in India with one of the world’s longest coastline at its disposal, India has incredibly scenic beaches that offer everything from solitude and sunbathing to parties and adventure, here are the ones that you really shouldn’t miss out on.</p>
+				</div>
+			</div>
+		</div>
+		
+		<!--Modal for About Us-->
+		<div id="aboutUsModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+			
+			<!--Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" id="crossAbout" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">About Us</h4>
+					</div>
+					
+					<div class="modal-body">
+						<p>Pack & Go enables travellers to plan and book the perfect trip. 
+						It offers advice from travellers and a wide variety of travel choices and planning . 
+						Pack & Go branded sites make up the largest travel community in the world, reaching 34 million unique monthly visitors**, and more than 25 million reviews and opinions covering more than 1.9 million accommodations, restaurants and attractions. 
+						The sites operate in 45 countries worldwide. Pack & Go also includes Pack & Go for Business, a dedicated division that provides the tourism industry access to millions of monthly Pack & Go visitors </p>
+					</div>
+					
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" id="closeAbout" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Modal ends-->
+		
+		<!--Offers table Modal-->
+		<div id="offersModal" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+			
+			<!--Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" id="crossTable" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Offers</h4>
+					</div>
+					
+					<div class="modal-body">
+					
+					<!--Offers table-->
+						<div class="table-responsiveness">
+							<table class="table" id="offersTable">
+								<thead>
+									<tr>
+										<th>Verified On</th>
+										<th>Offer Detail</th>
+										<th>Coupon Code</th>
+										<th>Valid Till</th>
+									</tr>
+								</thead>
+								
+								<tbody>
+									<tr>
+										<td>20 Aug</td>
+										<td>Get 250Rs off for booking over 1500Rs. <em>Only for App</em></td>
+										<td>PAGAPP250</td>
+										<td>31 Aug</td>
+									</tr>
+									
+									<tr>
+										<td>12 Aug</td>
+										<td>Get 50Rs off for booking over 500Rs. <em>Only for App</em></td>
+										<td>PAGAGS50</td>
+										<td>20 Aug</td>
+									</tr>
+									
+									<tr>
+										<td>1 Aug</td>
+										<td>Get 10Rs off for booking over 100Rs. <em>Only for App</em></td>
+										<td>PAGAUG10</td>
+										<td>30 Aug</td>
+									</tr>
+									
+									<tr>
+										<td>5 Aug</td>
+										<td>Get 500Rs off for booking over 2000Rs. <em>Only for App</em></td>
+										<td>PAGAPPMEGA500</td>
+										<td>5 Sep</td>
+									</tr>
+									
+									<tr>
+										<td>15 Aug</td>
+										<td>Get 150Rs off for booking over 1000Rs. <em>Only for App</em></td>
+										<td>PAGINDIA150</td>
+										<td>30 Aug</td>
+									</tr>
+									
+									<tr>
+										<td>22 Aug</td>
+										<td>Get 500Rs cash back for booking over 2000Rs. <em>Only for App</em></td>
+										<td>PAGCB500</td>
+										<td>15 Sep</td>
+									</tr>
+									
+									<tr>
+										<td>9 Aug</td>
+										<td>Get 200Rs PayU Money for booking over 1200Rs. <em>Only for App</em></td>
+										<td>PAGPAYU200</td>
+										<td>9 Sep</td>
+									</tr>
+									
+									<tr>
+										<td>17 Aug</td>
+										<td>Get 100Rs Pack & Go money for booking over 500Rs. <em>Only for App</em></td>
+										<td>PAGMONEY100</td>
+										<td>25 Aug</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					<!--Table ends here-->
+					</div>
+					
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" id="closeTable"data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--Offers table Modal ends-->
+		
+		<!--Modal for SignUp-->
+		<div id="signUpModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+			
+			<!--Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" id="crossSignUp" data-dismiss="modal" onclick="resetForm()">&times;</button>
+						<h4 class="modal-title">Sign Up</h4>
+					</div>
+					
+					<div class="modal-body">
+						<form class="form-horizontal" id="signUpForm"role="form">
+							
+							<div class="form-group">
+								<label class="col-xs-5 control-label">Username<span style="color:red;">*</span></label>
+								<div class="col-xs-5">
+									<input type="text" class="form-control" id="usernameSignUp" name="username">
+									<div class="error" id="unS">
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-xs-5 control-label">Email address<span style="color:red;">*</span></label>
+								<div class="col-xs-5">
+									<input type="email" class="form-control" id="emailSignUp" name="email" />
+									<div class="error" id="emS">
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-xs-5 control-label">Password<span style="color:red;">*</span></label>
+								<div class="col-xs-5">
+									<input type="password" class="form-control" id="passwordSignUp" name="password" />
+									<div class="error" id="pwdS">
+									</div>
+								</div>
+							</div>
+							<div id="successS">
+							</div>
+							<span class="help-block" >* mandatory fields </span>
+						
+						</form>
+					</div>
+					
+					<div class="modal-footer" style="text-align:center;">
+						<button type="button" class="btn btn-primary" id="signUp" onclick="validateSignUp()">SignUp</button>
+						<button type="button" class="btn btn-danger" id="closeSignUp" data-dismiss="modal" onclick="resetForm()">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Modal ends-->
+		
+		<!--Modal for Login-->
+		<div id="loginModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+			
+			<!--Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" id="crossLogin" data-dismiss="modal" onclick="resetForm()">&times;</button>
+						<h4 class="modal-title" style="text-align:center;">Login</h4>
+					</div>
+					
+					<div class="modal-body">
+						<form role="form" class="form-horizontal" id="loginForm">
+						
+							<div class="form-group">
+								<label class="col-xs-5 control-label">Username<span style="color:red;">*</span></label>
+								<div class="col-xs-5">
+									<input type="text" class="form-control" id="usernameLogin" name="usernameL">
+									<div class="error" id="unL">
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-xs-5 control-label">Password<span style="color:red;">*</span></label>
+								<div class="col-xs-5">
+									<input type="password" class="form-control" id="passwordLogin" name="passwordL" />
+									<div class="error" id="pwdL">
+									</div>
+								</div>
+							</div>
+							<div id="successL">
+							</div>
+							<span class="help-block" >* mandatory fields </span>
+						</form>
+					</div>
+					
+					<div class="modal-footer" style="text-align:center;">
+						<button type="button" class="btn btn-primary" id="login" onclick="validateLogin()">Login</button>
+						<button type="button" class="btn btn-danger" id="closeLogin" data-dismiss="modal" onclick="resetForm()">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Modal ends-->
+		<script src="js/index.js"></script>
+	</body>
+</html>

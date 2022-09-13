@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dashboard</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!--Offline script and css-->
+		
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/index.css">
+		
+		<link rel="stylesheet" href="css/dashboard.css">
+		
+		
+		
+	</head>
+	
+	<body >
+	
+	<!--Top navbar-->
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container-fluid">
+				
+				<div class="navbar-header ">
+					<button  id="toggleNavTop"type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>                        
+					 </button>
+					<a href="index.html" class="navbar-brand fontPacifico" id="navBrand" >Pack & Go </a>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right fontPoiret">
+						<li id="topMenu1"><a href="#" data-toggle="modal" data-target="#offersModal"><span class="glyphicon glyphicon-sunglasses"></span> Offers</a></li>
+						<li  id="topMenu2"><a href="index.html" ><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<!--Top navbar ends-->
+		
+		<div class="container-fluid">
+		
+		<!--left panel-->
+		
+			<div class="row ">
+				<div class="col-md-2">
+					<div class="panel panel-default ">
+						<div class="panel-heading text-center">My Dashboard</div>
+						<div class="panel-body panel-white">
+							<img src="images/userAvatar1.jpg" class="img-circle img-responsive center-block" style="width=25%;height:50px;">
+							<ul class=" nav nav-pills nav-stacked" style="padding-top:10px;">
+								<li  id="sideMenu1"><a  data-toggle="tab" href="#nBooking" ><span class="glyphicon glyphicon-briefcase"></span> New Booking</a></li>
+								<li  id="sideMenu2"><a data-toggle="tab" href="#bHistory"><span class="glyphicon glyphicon-list-alt"></span> Booking History</a></li>
+								<li  id="sideMenu3"><a data-toggle="tab" href="#bProfile"><span class="glyphicon glyphicon-edit"></span> Edit Profile</a></li>
+							</ul>
+						</div> 
+					</div>
+				</div>
+			
+			
+			<!--left panel ends-->
+			
+			<!--right side-->
+				<div class="col-md-10">
+					<div class="tab-content">
+						<div id="nBooking" class="tab-pane fade in  active">
+							<div class="panel panel-default">
+								<div class="panel-heading">New Booking</div>
+								<div class="panel-body">
+									
+									
+									<!-- booking form-->
+									<form class="form-horizontal" role="booking form">
+										<div class="form-group col-md-4">
+											<label for="fromDD" class="control-label col-sm-2">From:</label>
+											<div class="col-sm-10">
+												<select class="form-control" id="fromDD" >
+													<option id="from1" value="--Select--"> --Select--</option>
+													<option id="from2" value="Bengaluru"> Bengaluru</option>
+													<option id="from3" value="Mysuru">Mysuru</option>
+												</select>
+											</div>
+										</div>
+										
+										<div class="form-group col-md-4">
+											<label for="toDD" class="control-label col-sm-2">To:</label>
+											 <div class="col-sm-10"> 
+												<select class="form-control" id="toDD" >
+													<option id="to1" value="--Select--"> --Select--</option>
+													<option id="to2" value="Hyderabad">Hyderabad</option>
+													<option id="to3" value="Chennai">Chennai</option>
+												</select>
+											</div>
+										</div>
+										
+										
+										
+										<div class="form-group col-md-4">
+											<div class="col-sm-offset-2 col-sm-10">
+												<button type="button" class="btn btn-success "  id="searchBus" style="font-weight:bold;" onclick="search()">Search Buses</button>
+											</div>
+										</div>
+									</form>									<!--booking form ends-->
+									
+									
+								</div> 											<!-- panel body ends-->
+								
+								
+								<!--div for table and error-->
+								
+								<div class="text-center">
+									<span id="error" class="error" style="font-weight:bold;"></span>
+								</div>
+								<div id="myTable" class="table-responsiveness" style="padding-left:10px;">
+										
+								</div>
+								<div id="proceed" class="text-center">
+								</div>
+								
+							</div>
+						</div>
+						
+						<!--Booking History tab-->
+						<div id="bHistory" class="tab-pane fade ">
+							<div class="panel panel-default">
+								<div class="panel-heading">Booking History<span style="float:right;"><button class="btn btn-success" id="refresh" onclick="historyUpdate()">Refresh</button></span></div>
+								
+								<div class="panel-body ">
+									<table class="table" id="bookingHistoryTable">
+										<thead>
+											<th>Source</th>
+											<th>Destination</th>
+											<th>Bus Name</th>
+											<th>Total Fare</th>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							
+						</div>
+						
+						<!--Edit profile tab-->
+						<div id="bProfile" class="tab-pane fade ">
+							<div class="panel panel-default">
+								<div class="panel-heading">Profile</div>
+								
+								<div class="panel-body ">
+									<!-- div for enable button-->
+									<div>
+										<span style="float: right; "><button class="btn btn-success" id="editAccount" onclick="enableAccount()" style="font-weight:bold;">Enable Editing</button></span>
+									</div>
+									<br/>
+									<br/>
+									<!-- div for form -->
+									<div id="accountForm">
+										<form class="form-horizontal" role="form" id="accForm">
+											<div class="form-group">
+												<label class="control-label col-sm-2">Account Picture</label>
+												<div class="col-sm-4">
+													<output id="list" style="margin-bottom: 10px;"></output>
+													<input type="file" id="files" name="files[]" class="file"  data-show-upload="false" data-show-caption="true" disabled="disabled">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-2">Gender</label>
+												<div class="col-sm-4">
+													<div class="radio" >
+														<label class="radio-inline"><input type="radio" name="gender" value="Male" id="genderM" disabled="disabled">Male</label>
+														<label class="radio-inline"><input type="radio" name="gender" value="Female" id="genderF" disabled="disabled">Female</label>
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="sel1">Language</label>
+												<div class="col-sm-4">
+													 <select class="form-control" id="sel1" disabled="disabled">
+														<option id="op1">English</option>
+														<option id="op2">Español</option>
+														<option id="op3">French</option>
+														<option id="op4">German</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-2">Mobile Number</label>
+												<div class="col-sm-4">
+													<input type="text" id="contactNum"  disabled="disabled" style="border-radius: 4px;" maxlength="10">
+												</div>
+											</div>
+											<div class="col-sm-offset-2">
+												
+												<button type="button" class="btn btn-primary" disabled="disabled" id="clearAccount" onclick="resetAcc()">Reset All</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--right side ends-->
+			
+		</div>
+			<!--container-fluid  ends-->
+		<!--Offers table Modal-->
+				<div id="offersModal" class="modal fade" role="dialog">
+					<div class="modal-dialog modal-lg">
+					
+					<!--Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" id="crossTable" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Offers</h4>
+							</div>
+							
+							<div class="modal-body">
+							
+							<!--Offers table-->
+								<div class="table-responsiveness">
+									<table class="table">
+										<thead>
+											<tr>
+												<th>Verified On</th>
+												<th>Offer Detail</th>
+												<th>Coupon Code</th>
+												<th>Valid Till</th>
+											</tr>
+										</thead>
+										
+										<tbody>
+											<tr>
+												<td>20 Aug</td>
+												<td>Get 250Rs off for booking over 1500Rs. <em>Only for App</em></td>
+												<td>PAGAPP250</td>
+												<td>31 Aug</td>
+											</tr>
+											
+											<tr>
+												<td>12 Aug</td>
+												<td>Get 50Rs off for booking over 500Rs. <em>Only for App</em></td>
+												<td>PAGAGS50</td>
+												<td>20 Aug</td>
+											</tr>
+											
+											<tr>
+												<td>1 Aug</td>
+												<td>Get 10Rs off for booking over 100Rs. <em>Only for App</em></td>
+												<td>PAGAUG10</td>
+												<td>30 Aug</td>
+											</tr>
+											
+											<tr>
+												<td>5 Aug</td>
+												<td>Get 500Rs off for booking over 2000Rs. <em>Only for App</em></td>
+												<td>PAGAPPMEGA500</td>
+												<td>5 Sep</td>
+											</tr>
+											
+											<tr>
+												<td>15 Aug</td>
+												<td>Get 150Rs off for booking over 1000Rs. <em>Only for App</em></td>
+												<td>PAGINDIA150</td>
+												<td>30 Aug</td>
+											</tr>
+											
+											<tr>
+												<td>22 Aug</td>
+												<td>Get 500Rs cash back for booking over 2000Rs. <em>Only for App</em></td>
+												<td>PAGCB500</td>
+												<td>15 Sep</td>
+											</tr>
+											
+											<tr>
+												<td>9 Aug</td>
+												<td>Get 200Rs PayU Money for booking over 1200Rs. <em>Only for App</em></td>
+												<td>PAGPAYU200</td>
+												<td>9 Sep</td>
+											</tr>
+											
+											<tr>
+												<td>17 Aug</td>
+												<td>Get 100Rs Pack & Go money for booking over 500Rs. <em>Only for App</em></td>
+												<td>PAGMONEY100</td>
+												<td>25 Aug</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							<!--Table ends here-->
+							</div>
+							
+							<div class="modal-footer">
+								<button type="button" class="btn btn-danger" id="closeTable"data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!--Offers table Modal ends-->
+		<script src="js/dashboard.js"></script>
+	</body>
+</html>
